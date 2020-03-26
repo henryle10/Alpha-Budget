@@ -1,0 +1,104 @@
+.container {
+    max-width: 1550px !important;
+}
+
+#link_marg {
+    margin-left: 10px;
+    border: 2px solid black;
+    background-color: #F2F2F2;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#background {
+    background-image: url("stock.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#box_logo {
+    border: 2px solid black;
+    padding: 10px 22px 0px 10px;
+    background-color: #EEF1EC;
+    background-image: linear-gradient(to bottom right, #6AAC06, rgb(195, 240, 166), #EEF1EC);
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 12px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* About page */
+
+.boxes {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    border-top: 7px solid green;
+    height: 300px;
+    width: 30%;
+    box-shadow: 10px 10px slategray;
+    text-align: center;
+    background-color: #fff;
+    background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
+}
+
+#gif_box {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+#login_box {
+    margin: auto;
+    width: 25%;
+    padding: 15px;
+    background-color: white;
+}
+
+#reg_box {
+    margin: auto;
+    width: 25%;
+    padding: 15px;
+    background-color: white;
+}
+
+#gif {
+    margin: auto;
+    width: 1000px;
+    padding: 10px;
+    height: 450px;
+}
+
+.box_div {
+    height: 100px;
+}
+
+#cont_background {
+    background-image: linear-gradient(to bottom right, rgb(52, 211, 123), rgb(147, 241, 179));
+    box-shadow: 10px 10px 10px grey;
+    border-radius: 10px;
+}
+
+#row1 {
+    box-shadow: 10px 10px 5px grey;
+    border: 2px solid black;
+}
+
+#activity_box {
+    background-color: #fff;
+    background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
+    padding: 30px;
+}
+
+/* Calendar */

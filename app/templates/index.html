@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Aplha Budgets</title>
+</head>
+
+<body id="background">
+    <div class="container">
+        <div class="navbar transparent navbar-inverse navbar-fixed-top"></div>
+        <nav class="navbar navbar-expand-lg">
+            <ul class="nav navbar-nav mr-auto">
+                <li>
+                    <div id="box_logo">
+                        <img id="logo" src="{% static 'css/alpha.png' %}" alt="alpha">
+                        <p style="color: black; display: inline-block; font-size: 25px;">Alpha Budgets</p>
+                    </div>
+                </li>
+                <li style="margin-top: 15px; margin-left: 50px;">
+                    <div>
+                        <a class="btn default" id="link_marg" href="/about_page">About us</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <div>
+                        <a class="btn default" id="link_marg" href="/register_page">Register</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a class="btn btn-primary" id="link_marg" href="/sign_in">Login</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>

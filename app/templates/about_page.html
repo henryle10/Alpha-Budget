@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body id="background">
+    <div id="cont_background" class="container">
+        <div class="navbar transparent navbar-inverse navbar-fixed-top"></div>
+        <nav class="navbar navbar-expand-lg">
+            <ul class="nav navbar-nav mr-auto">
+                <li>
+                    <div id="box_logo">
+                        <img id="logo" src="{% static 'css/alpha.png' %}" alt="alpha">
+                        <p style="color: black; display: inline-block; font-size: 25px;">Alpha Budgets</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>
+                    <div>
+                        <a class="btn default" id="link_marg" href="/home">Home</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="row" style="padding: 20px;">
+            <div style="margin-left: 40px;" class="col-sm, boxes">
+                <h2 class="bold">About us</h2>
+                <p style="margin-top: 16px;">Integrated calendar system to keep track of your income weekly</p>
+            </div>
+            <div class="col-sm, boxes">
+                <h3 class="bold">Keep track of your budgets</h3>
+                <p style="margin-top: 20px;">Easily create budgets and customizable budgeting options</p>
+            </div>
+            <div class="col-sm, boxes">
+                <h2 class="bold">Why choose us?</h2>
+                <p style="margin-top: 16px;">We simplify saving money for you so you don't have to</p>
+            </div>
+        </div>
+        <div id="gif_box">
+            <h2>Soon you will be making it rain</h2>
+            <img id="gif" src="{% static 'css/moneyz.gif' %}" alt="money gif">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body id="background">
+    <nav class="navbar navbar-expand-lg" style="background-color: #5D5C61;">
+        <h1 style="color: white;">Hello {{user.first_name}}!</h1>
+        <ul class="nav navbar-nav ml-auto">
+            <li>
+                <div class="shadow">
+                    <a class="btn btn-primary" style="padding-right: 10px; margin-right: 10px;" href="/edit_page">Edit
+                        Info</a>
+                </div>
+            </li>
+            <li>
+                <div class="shadow">
+                    <a class="btn btn-secondary" style="padding-right: 10px; margin-right: 10px;"
+                        href="/manage_page">Manage expenses</a>
+                </div>
+            </li>
+            <li>
+                <div class="shadow">
+                    <a class="btn btn-primary" style="padding-right: 10px; margin-right: 10px;"
+                        href="/calendar_page">Calendar</a>
+                </div>
+            </li>
+            <li>
+                <div class="shadow">
+                    <a class="btn btn-danger" style="padding-right: 10px;" href="/logout">logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="cont_color" class="container">
+        <div class="row">
+            <div class="col-8" style="background-color: green;">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Account</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col">Budget</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for buds in budget %}
+                        {% if buds.created_by.id == request.session.user_id %}
+                        <tr>
+                            <th>Account: {{buds.account}}</th>
+                            <th>Balance: {{buds.total_amount}}</th>
+                            <th name="budget">Budget: {{buds.budget}}</th>
+                            <th>
+                                <a class="btn btn-danger" href="/delete/{{buds.id}}">Delete</a>
+                                <a class="btn btn-success" href="/splurge/{{buds.id}}">Splurge</a>
+                            </th>
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="activity_box">
+        <h2>Activities Log:</h2>
+        {% for activity in request.session.activities %}
+        <p>{{activity}}</p>
+        {% endfor %}
+    </div>
+    </div>
+</body>
+
+</html>
