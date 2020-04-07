@@ -5,79 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Dash</title>
 </head>
 
-<body id="background">
-    <nav class="navbar navbar-expand-lg" style="background-color: #5D5C61;">
-        <h1 style="color: white;">Hello {{user.first_name}}!</h1>
+<body id="background3">
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="navbar navbar-inverse navbar-fixed-top"></div>
+        <h1 style="color: black; font-style: italic; font-family: sans-serif ;">Hello {{user.first_name}}!</h1>
         <ul class="nav navbar-nav ml-auto">
-            <li>
-                <div class="shadow">
-                    <a class="btn btn-primary" style="padding-right: 10px; margin-right: 10px;" href="/edit_page">Edit
-                        Info</a>
-                </div>
-            </li>
-            <li>
-                <div class="shadow">
-                    <a class="btn btn-secondary" style="padding-right: 10px; margin-right: 10px;"
-                        href="/manage_page">Manage expenses</a>
-                </div>
-            </li>
-            <li>
-                <div class="shadow">
-                    <a class="btn btn-primary" style="padding-right: 10px; margin-right: 10px;"
-                        href="/calendar_page">Calendar</a>
-                </div>
-            </li>
-            <li>
-                <div class="shadow">
-                    <a class="btn btn-danger" style="padding-right: 10px;" href="/logout">logout</a>
-                </div>
-            </li>
+            <ul class="nav navbar-nav">
+                <li>
+                    <div>
+                        <a class="btn default" id="link_marg" href="/calendar_page">Calender</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a class="btn default" id="link_marg" href="/manage_page">Manage
+                            Expenses</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a class="btn default" id="link_marg" href="/edit_page">Add Account</a>
+                    </div>
+                </li>
+                <li>
+                    <div style="box-shadow: 3px 3px green;">
+                        <a class="btn default" id="link_marg" href="/logout">Logout</a>
+                    </div>
+                </li>
+            </ul>
         </ul>
     </nav>
-    <div id="cont_color" class="container">
-        <div class="row">
-            <div class="col-8" style="background-color: green;">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Account</th>
-                            <th scope="col">Balance</th>
-                            <th scope="col">Budget</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for buds in budget %}
-                        {% if buds.created_by.id == request.session.user_id %}
-                        <tr>
-                            <th>Account: {{buds.account}}</th>
-                            <th>Balance: {{buds.total_amount}}</th>
-                            <th name="budget">Budget: {{buds.budget}}</th>
-                            <th>
-                                <a class="btn btn-danger" href="/delete/{{buds.id}}">Delete</a>
-                                <a class="btn btn-success" href="/splurge/{{buds.id}}">Splurge</a>
-                            </th>
-                        </tr>
-                    </tbody>
-                    {% endif %}
-                    {% endfor %}
-                </table>
-            </div>
+    <div style="background-color: white;" class="container">
+        <div class="col" style="padding: 10px;">
+            <table class="table table-striped table-light">
+                <thead>
+                    <tr class="bg-default" style="color: white; background-color: teal;">
+                        <th style="font-weight: bold;" scope="col">Account</th>
+                        <th style="font-weight: bold;" scope="col">Balance</th>
+                        <th style="font-weight: bold;" scope="col">Budget</th>
+                        <th style="font-weight: bold;" scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for buds in budget %}
+                    {% if buds.created_by.id == request.session.user_id %}
+                    <tr>
+                        <th style="font-weight: 900;" scope="col">{{buds.account}}</th>
+                        <th style="font-weight: 500;" scope="col">${{buds.total_amount}}</th>
+                        <th style="font-weight: 500;" scope="col" name="budget">${{buds.budget}}</th>
+                        <th style="font-weight: 500;" scope="col">
+                            <a href="/delete/{{buds.id}}"><img id="trash" src="{% static 'css/trash.png' %}"
+                                    alt="trash"></a>
+                            <a class="btn btn-default" href="/splurge/{{buds.id}}">Splurge</a>
+                            <a class="btn btn-default" href="/withdraw_page/{{buds.id}}">Withdraw</a>
+                            <a class="btn btn-default" href="/deposit_page/{{buds.id}}">Deposit</a>
+                        </th>
+                    </tr>
+                </tbody>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div style="padding: 10px;" class="col">
+            <table id="myTable" class="table table-striped table-light">
+                <thead>
+                    <tr class="bg-dark" style="color: white;">
+                        <th style="font-weight: bold;" scope="col">Category</th>
+                        <th style="font-weight: bold;" scope="col">Planned</th>
+                        <th style="font-weight: bold;" scope="col">Amount ($)</th>
+                        <th style="font-weight: bold;" scope="col">Actions</th>
+                    </tr>
+                </thead>
+                {% for track in tracker %}
+                {% if track.created_by.id == request.session.user_id %}
+                <tbody>
+                    <tr class="item">
+                        {%for cate in track.category.all%}
+                        <th style="font-weight: 900;">{{cate.title}}</th>
+                        {% endfor %}
+                        <th style="font-weight: 500;">{{track.item}}</th>
+                        <th style="font-weight: 500;">${{track.planned_amount}}</th>
+                        <th>
+                            <a href="/delete/{{track.id}}/track"><img id="trash" src="{% static 'css/trash.png' %}"
+                                    alt="trash"></a>
+                        </th>
+
+                    </tr>
+                </tbody>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <h2>Activities Log:</h2>
+        <div id="activity_box">
+            {% for activity in request.session.activities %}
+            <p>{{activity}}</p>
+            {% endfor %}
+        </div>
+        <h2>Chart:</h2>
+        <div>
+
         </div>
     </div>
-    <div id="activity_box">
-        <h2>Activities Log:</h2>
-        {% for activity in request.session.activities %}
-        <p>{{activity}}</p>
-        {% endfor %}
-    </div>
-    </div>
+
 </body>
 
 </html>

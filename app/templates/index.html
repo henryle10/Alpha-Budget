@@ -5,43 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Aplha Budgets</title>
 </head>
 
 <body id="background">
-    <div class="container">
-        <div class="navbar transparent navbar-inverse navbar-fixed-top"></div>
-        <nav class="navbar navbar-expand-lg">
-            <ul class="nav navbar-nav mr-auto">
-                <li>
-                    <div id="box_logo">
-                        <img id="logo" src="{% static 'css/alpha.png' %}" alt="alpha">
-                        <p style="color: black; display: inline-block; font-size: 25px;">Alpha Budgets</p>
-                    </div>
-                </li>
-                <li style="margin-top: 15px; margin-left: 50px;">
-                    <div>
-                        <a class="btn default" id="link_marg" href="/about_page">About us</a>
-                    </div>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="navbar navbar-inverse navbar-fixed-top"></div>
+        <ul class="nav navbar-nav mr-auto">
             <ul class="nav navbar-nav">
-                <li>
-                    <div>
-                        <a class="btn default" id="link_marg" href="/register_page">Register</a>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <a class="btn btn-primary" id="link_marg" href="/sign_in">Login</a>
-                    </div>
-                </li>
+                <img id="logo" src="{% static 'css/alpha2.png' %}" alt="alpha">
+                <p style="color: black; display: inline-block; font-size: 25px; padding-top: 9px;">Alpha Budgets</p>
             </ul>
-        </nav>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li>
+                <div>
+                    <a class="btn default" id="link_marg" href="/about_page">About us</a>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <a class="btn default" id="link_marg" href="/register_page">Register</a>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <a style="box-shadow: 3px 3px green;" class="btn default" id="link_marg" href="/sign_in">Login</a>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    <br><br><br><br><br><br>
+    <div class="h-100 row align-center">
+        <div class="col" style="text-align: center; display: inline-block;">
+            <div id="welcome_box" style="display: inline-block;">
+                <h1 style="font-size: 67px; color: white; font-weight: bold; margin-top: 36px;">W E L C O M E</h1>
+                <h4 style="color: white;">Click here to get started:</h4>
+                <a style="color: white; border: 1px solid white; margin-top: 10px;" class="btn btn-default"
+                    href="register_page">HERE</a>
+            </div>
+        </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer id="foot" class="page-footer font-small blue">
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> By yours truly</a>
+        </div>
+    </footer>
 </body>
 
 </html>

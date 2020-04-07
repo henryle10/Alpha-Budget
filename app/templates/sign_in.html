@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Login</title>
@@ -14,24 +14,26 @@
 <body style="background-color: #F2F2F2;">
     <div class="container">
         <br>
-        <div id="login_box">
-            <h2>Alpha Budgets</h2>
+        <div style="text-align: center;" id="login_box">
+            <div id="box_logo">
+                <img id="logo" src="{% static 'css/alpha2.png' %}" alt="alpha">
+                <p style="color: black; display: inline-block; font-size: 25px; padding-top: 9px;">Alpha Budgets</p>
+            </div>
         </div>
         <br><br>
         <div id="login_box" style="border: 1px solid grey;" class="col">
-            <h1>Login</h1>
+            <h1 style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                Login</h1>
             <form action="/login" method="post">
                 {%csrf_token%}
                 <div class="form-group">
-                    <label for="">Email:
-                        <input class="form-control" type="email" name="email">
-                    </label>
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">Email:</label>
+                    <input class="form-control" type="email" name="email">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Password:
-                        <input class="form-control" type="password" name="password">
-                    </label>
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">Password:</label>
+                    <input class="form-control" type="password" name="password">
                 </div>
                 <br>
                 <div class="text-danger">
@@ -45,7 +47,7 @@
                     </ul>
                     {% endif %}
                 </div>
-                <button class="btn btn-primary form-control">Log In</button>
+                <button class="btn btn-success form-control">Log In</button>
             </form>
             <br>
             <hr style="border: 0.4px solid grey;">

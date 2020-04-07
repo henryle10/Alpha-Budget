@@ -20,6 +20,30 @@ class UserManager(models.Manager):
         return errors
 
 
+class BudgetManager(models.Manager):
+    def validator(self, data):
+        errors = {}
+        if len(data["account"]) < 2:
+            errors["account"] = "Account must have at least 2 characters"
+        return errors
+
+
+class CategoryManager(models.Manager):
+    def validator(self, data):
+        errors = {}
+        if len(data["title"]) < 2:
+            errors["title"] = "Title must have at least 2 characters"
+        return errors
+
+
+class TrackerManager(models.Manager):
+    def validator(self, data):
+        errors = {}
+        if len(data["item"]) < 2:
+            errors["item"] = "Title must have at least 2 characters"
+        return errors
+
+
 class User(models.Model):
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
@@ -39,22 +63,34 @@ class Budget(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = BudgetManager()
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = CategoryManager()
 
 
 class Tracker(models.Model):
-    category = models.CharField(max_length=100)
     item = models.CharField(max_length=100)
     planned_amount = models.IntegerField(default=0)
     created_by = models.ForeignKey(
         User, related_name="user_tracker", on_delete=models.CASCADE
     )
+    category = models.ManyToManyField(Category, related_name="category_tracker")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = TrackerManager()
 
 
-# class Work(models.Model):
-#     description
-#     date_wored_on
-#     user_worked
-#     created_at
-#     updated_at
+class Work(models.Model):
+    description = models.CharField(max_length=255)
+    work_time = models.TimeField(null=True)
+    date = models.DateField(null=True)
+    user_worked = models.ForeignKey(
+        User, related_name="user_calendar", on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

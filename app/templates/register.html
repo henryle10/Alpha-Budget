@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Register</title>
@@ -24,42 +24,43 @@
             </ul>
         </nav>
         <div id="login_box">
-            <h2 style="text-align: center;">Alpha Budgets</h2>
+            <div style="text-align: center;" id="box_logo">
+                <img id="logo" src="{% static 'css/alpha2.png' %}" alt="alpha">
+                <p style="color: black; display: inline-block; font-size: 25px; padding-top: 9px;">Alpha Budgets</p>
+            </div>
         </div>
         <br>
         <div id="reg_box" style="border: 1px solid grey;" class="col">
-            <h1>Create an account!</h1>
+            <h2 style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Create an
+                account!</h2>
             <form action="/register" method="post">
                 {%csrf_token%}
                 <div class="form-group">
-                    <label for="">First Name:
-                        <input class="form-control col-xs-4" type="text" name="fname">
-                    </label>
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">First Name: </label>
+                    <input class="form-control col-xs-4" type="text" name="fname">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Last Name:
-                        <input class="form-control" type="text" name="lname">
-                    </label>
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">Last Name: </label>
+                    <input class="form-control" type="text" name="lname">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Email:
-                        <input class="form-control" type="email" name="email">
-                    </label>
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">Email: </label>
+                    <input class="form-control" type="email" name="email">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Password:
-                        <input class="form-control" type="password" name="password">
-                    </label>
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">Password: </label>
+                    <input class="form-control" type="password" name="password">
                 </div>
 
                 <div class="form-group">
-                    <label for="">Confirm PW:
-                        <input class="form-control" type="password" name="cpassword">
+                    <label style="font-family: Georgia, 'Times New Roman', Times, serif;" for="">Confirm Password:
                     </label>
+                    <input class="form-control" type="password" name="cpassword">
                 </div>
+
                 <div class="container">
                     <div class="text-danger">
                         {%if messages%}
@@ -72,8 +73,9 @@
                         </ul>
                         {% endif %}
                     </div>
-                    <br>
-                    <button class="btn btn-primary form-control">Register</button>
+                </div>
+                <br>
+                <button class="btn btn-success form-control">Register</button>
             </form>
         </div>
     </div>

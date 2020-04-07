@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body id="background3">
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="navbar navbar-inverse navbar-fixed-top"></div>
+        <ul class="nav navbar-nav mr-auto">
+            <ul class="nav navbar-nav">
+                <img id="logo" src="{% static 'css/alpha2.png' %}" alt="alpha">
+                <p style="color: black; display: inline-block; font-size: 25px; padding-top: 9px;">Alpha Budgets</p>
+            </ul>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+            <ul class="nav navbar-nav">
+                <li>
+                    <div style="box-shadow: 3px 3px green;">
+                        <a class="btn default" id="link_marg" href="/dash">Dashboard</a>
+                    </div>
+                </li>
+            </ul>
+        </ul>
+    </nav>
+    <br><br>
+    <div style="width: 50%;" class="container">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3 class="text-center">Deposit</h3>
+            </div>
+            <form action="/deposit/{{account_id.id}}" method="POST">
+                {%csrf_token%}
+                <div class="form-group">
+                    <label for="">Amount:</label>
+                    <input class="form-control" type="number" name="total_amount">
+                </div>
+                <button class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
